@@ -202,20 +202,152 @@
 ///////////////////////////////////////
 // Lecture: Functions
 
-function CalculateAge(yearOfBirth) {
-    var age = 2018 - yearOfBirth;
-    return age;
-}
+// function CalculateAge(yearOfBirth) {
+//     var age = 2018 - yearOfBirth;
+//     return age;
+// }
 
-var ageJohn = CalculateAge(1998);
-var ageMike = CalculateAge(1969);
-var ageMary = CalculateAge(1948);
-console.log(ageMary);
+// var ageJohn = CalculateAge(1990);
+// var ageMike = CalculateAge(1969);
+// var ageMary = CalculateAge(1948);
+// // console.log(ageJohn);
 
-function yearsUntilRetirement(name, year) {
-    var age = CalculateAge(year);
-    var retirement = 65 - age;
-    console.log(retirement);
-}
+// function yearsUntilRetirement(name, yearOfBirth) {
+//     var age = CalculateAge(yearOfBirth);
 
-yearsUntilRetirement('John', 1980);
+//     //same thing however we can use different
+//     //  names so we dont confuse ourselves
+// // function yearsUntilRetirement(name, year) {
+// //     var age = CalculateAge(year);
+//     var retirement = 65 - age;
+//     // console.log(retirement);
+
+//     if (retirement >= 0){
+//         console.log(name + ' retires in ' + retirement + ' years.');
+//     } else { 
+//         console.log(name + ' has already retired.');
+//     }
+// }
+
+// yearsUntilRetirement('John', 1990);
+// yearsUntilRetirement('Mike', 1969);
+// yearsUntilRetirement('Mary', 1948);
+
+
+
+///////////////////////////////////////
+// Lecture: Statements and expressions
+
+//function declaration 
+// function whatDoYouDo(job, firstName) {}
+
+//function expression 
+// var whatDoYouDo = function (job, firstName) {
+//     switch(job) {
+//         case 'teacher':
+//             return firstName + ' teaches kids how to code';
+//         case 'driver':
+//             return firstName + ' drives a cab in Lisbon';
+//         case 'designer':
+//             return firstName + ' designs beautiful websites';
+//         default:
+//             return firstName + ' does something else';
+//     }
+// }
+//  console.log(whatDoYouDo('teacher', 'John'));
+//  console.log(whatDoYouDo('driver', 'Jane'));
+//  console.log(whatDoYouDo('Retired', 'Mark'));
+ 
+
+///////////////////////////////////////
+// Lecture: Arrays
+
+//Initialize new Array
+// var names = ['John', 'Mark', 'Jane'];
+// var years = new Array(1990, 1969, 1948);
+
+// console.log(names[0]); 
+// console.log(names); 
+// console.log(names.length); 
+
+// //mutate array data
+// names[1] = 'Ben';
+// // names[5] = 'Mary';
+// names[names.length] = 'Mary';
+// console.log(names);
+
+// //Different data types
+// var john = ['John', 'Smith', 1990, 'teacher', false];
+// john.push('blue');
+// john.unshift('Mr.');
+// john.pop();
+// john.shift();
+// console.log(john);
+
+// // console.log(john.indexOf(22));
+
+// var isDesigner = john.indexOf('designer') === -1 
+// ? /*(? = then)*/ 'John is NOT a designer' 
+// : /* : = and else */ 'John is a designer';
+// console.log(isDesigner);
+
+
+///////////////////////////////////////
+// CODING CHALLENGE 3   (videos seem out of order)
+//(videos seem out of order, this coding challenge is not 
+// in the Basics-Final   oh well extra practice )
+
+/*
+John and his family went on a holiday and went to 3 different 
+restaurants. The bills were $124, $48 and $268.
+
+To tip the waiter a fair amount, John created a simple tip 
+calculator (as a function). He likes to tip 20% of the will 
+when the bill is less than $50, 15% when the bill is between 
+$50 and $200, and 10% if the bill is more than $200,
+
+In the end, John would like to have 2 arrays:
+1) Containing all three tips (one for each bill)
+2) Containing all three final paid amounts (bill + tip).
+
+(NOTE: To calculate 20% of a value, simply multiply 
+    if with 20/100 = 0.2)
+
+*/
+//  124
+//  48 
+//  268
+
+//  20%  < $50
+//  15%  >= $50 <= $200
+//  10%  > $200
+
+ function tipCalculator(bill) {
+     var percentage;
+    if (bill < 50){
+        percentage = .2;
+    } else if (bill >= 50 && bill < 200){
+        percentage = .15;
+    } else { 
+        percentage = .1;
+    }
+    return percentage * bill;
+ }
+ 
+//  console.log(tipCalculator(10));
+
+var bills = [124, 48, 268];
+var tips = [tipCalculator(bills[0]),
+            tipCalculator(bills[1]),
+            tipCalculator(bills[2]) ];
+        // console.log(tips);
+
+var fullAmount = [bills[0] + tips[0],
+                  bills[1] + tips[1], 
+                  bills[2] + tips[2] ]; 
+        console.log(tips, fullAmount);
+
+
+        
+///////////////////////////////////////
+// Lecture: Objects
