@@ -337,6 +337,7 @@ In the end, John would like to have 2 arrays:
 //  console.log(tipCalculator(10));
 
 var bills = [124, 48, 268];
+
 var tips = [tipCalculator(bills[0]),
             tipCalculator(bills[1]),
             tipCalculator(bills[2]) ];
@@ -348,6 +349,6 @@ var fullAmount = [bills[0] + tips[0],
         console.log(tips, fullAmount);
 
 
-        
+
 ///////////////////////////////////////
 // Lecture: Objects
