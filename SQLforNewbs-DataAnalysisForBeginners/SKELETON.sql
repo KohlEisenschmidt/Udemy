@@ -32,7 +32,7 @@ GROUP BY 2
 -- Which rating is the most prevalent in each store?
 
 -- (1)
-SELECT COUNT(title), rating
+SELECT COUNT(title), rating, COUNT(film_id)
 FROM film 
 GROUP BY rating
 ;
@@ -44,4 +44,25 @@ SELECT COUNT(title), rating
 FROM film 
 WHERE rental_rate = .99
 GROUP BY rating
+;
+
+SELECT rating, rental_rate, COUNT(film_id)
+FROM film 
+-- WHERE rental_rate = .99
+GROUP BY rating, rental_rate
+-- OR
+-- GROUP BY 1, 2
+;
+
+-- customer id, name(first and last),
+-- mailing address
+
+SELECT customer.customer_id, customer.first_name, customer.last_name, address.address
+FROM customer, address
+WHERE customer.address_id = address.address_id 
+;
+
+SELECT film.film_id, film.title, catagory.name, language.name
+FROM film, language, film_category, category
+WHERE film.film_id = film_category.film_id, language.language_id = film.language_id
 ;
